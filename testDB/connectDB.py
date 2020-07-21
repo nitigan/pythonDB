@@ -1,6 +1,6 @@
 import psycopg2
 try:
-    connection = psycopg2.connect(user="postgres",password="INE@2562",host="127.0.0.1",port="5432",database="postgres")
+    connection = psycopg2.connect(user="ADMIN",password="152372231",host="127.0.0.1",port="5432",database="postgres")
     cursor = connection.cursor()
     print(connection.get_dsn_parameters(),"\n")
 

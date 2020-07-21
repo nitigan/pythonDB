@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index7.html</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sign.css') }}">
+
+</head>
+<body>
+    <div class = "container theme-showcase" role="main">
+
+        <div class="jumbotron">
+            <h1>Guest Book</h1>
+            <a type="button" class="btn btn-link" href="{{ url_for('sign') }}">Sign the Guest Book</a>
+        </div>
+
+        {% for r in result %}
+        <div class ="page-header">
+            <h1>{{ r.name }}</h1>
+        </div>
+        <div class="well">
+            <p>{{r.comment}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
