@@ -2,10 +2,10 @@ import psycopg2
 from psycopg2 import Error
 try:
     connection = psycopg2.connect(user="webadmin",
-                                password="SPYatb32373",
-                                host="node1247-rachpython.th.app.ruk-com.cloud",
-                                port="11001",
-                                database="testdb")
+                                password="IYDdro59112",
+                                host="node1418-nitigan.app.ruk-com.cloud",
+                                port="11020",
+                                database="testdb4")
     cursor = connection.cursor()
 
     create_table_query = '''CREATE TABLE Comments

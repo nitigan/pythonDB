@@ -14,7 +14,7 @@ def sign():
 def process():
     name = request.form['name']
     comment = request.form['comment']
-    return render_template('example.html',name=name, comment=comment )
+    return render_template('index6.html',name=name, comment=comment )
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,14 +1,15 @@
 import psycopg2
 try:
     connection = psycopg2.connect(user="webadmin",
-                                password="SPYatb32373",
-                                host="node1247-rachpython.th.app.ruk-com.cloud",
+                                password="IYDdro59112",
+                                host="node1418-nitigan.app.ruk-com.cloud",
+                                port="11020",
                                 database="postgres")
     connection.autocommit = True
 
     cursor = connection.cursor()
 
-    sql = '''CREATE database TestDB'''
+    sql = '''CREATE database TestDB4'''
 
     cursor.execute(sql)
     print("Database created successfully.....")
