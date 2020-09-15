@@ -4,7 +4,7 @@ try:
                                 password="IYDdro59112",
                                 host="node1418-nitigan.app.ruk-com.cloud",
                                 port="11020",
-                                database="postgres")
+                                database="testdb5")
     connection.autocommit = True
 
     cursor = connection.cursor()
