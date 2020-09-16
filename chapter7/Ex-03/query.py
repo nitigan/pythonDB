@@ -3,7 +3,7 @@ from models import Book
 
 s = Session()
 
-bps = s.query(Book.title, Book.author).all()
+bps = s.query(Book.title, Book.author).all() #all
 for bp in bps:
     print('Title: ', bp.title)
     print('Author: ',bp.author)

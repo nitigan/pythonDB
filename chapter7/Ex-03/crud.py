@@ -1,3 +1,4 @@
+#crud.py
 from datetime import datetime
 from contextlib import contextmanager
 from sqlalchemy.orm import sessionmaker
@@ -23,15 +24,18 @@ def session_scope():
     finally:
         session.close()
     
-def recrete_database():
+
+def recreate_database():
     #Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
     
+
 def load_yaml(fn):
     with session_scope() as s:
         for data in yaml.load_all(open(fn),Loader=yaml.FullLoader):
             bookyml = Book(**data)
             s.add(bookyml)
+
 
 if __name__ == '__main__':
     recreate_database()
