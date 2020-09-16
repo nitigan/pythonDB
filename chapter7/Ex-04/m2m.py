@@ -11,7 +11,7 @@ Base = declarative_base()
 class Order_Product(Base):
     __tablename__ = 'order_product'
     id = Column(String(35), primary_key=True, unique=True)
-    order_id = Column(Integer, ForeignKey('order.id'), primary_key=True)
+    order_id = Column(Integer, ForeignKey('orders.id'), primary_key=True)
     product_id = Column(Integer, ForeignKey('products.id'), primary_key=True)
     quantity = Column(Integer)
 
@@ -42,7 +42,7 @@ class Product(Base):
         self.name = name
         self.orders = []
 
-    def __repr__(sefl):
+    def __repr__(self):
         return '<Product {}>'.format(self.name)
 
     
@@ -62,55 +62,55 @@ class Order(Base):
     def __init__(self,name):
         self.id = uuid.uuid4().hex
         self.name=name
-        self.product = []
+        self.products = []
 
     def __repr__(self):
         return '<Order {}>'.format(self.name)
 
     
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
+Base.metadata.drop_all(engine)
+Base.metadata.create_all(engine)
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+Session = sessionmaker(bind=engine)
+session = Session()
 
-    prod1 = Product(name="Oreo")
-    prod2 = Product(name="Hide and Seek")
-    prod3 = Product(name="Marie")
-    prod4 = Product(name="Good Day")
-
-
-    session.add_all([prod1, prod2, prod3, prod4])
-    session.commit()
-
-    order1 = Order(name="First Order")
-    order2 = Order(name="Second Order")
+prod1 = Product(name="Oreo")
+prod2 = Product(name="Hide and Seek")
+prod3 = Product(name="Marie")
+prod4 = Product(name="Good Day")
 
 
-    order1.add_products([(prod1, 4),(prod2, 5),(prod3, 4)])
-    order2.add_products([(prod2, 6),(prod1, 1),(prod3, 2), (prod4, 1)])
+session.add_all([prod1, prod2, prod3, prod4])
+session.commit()
 
-    session.commit()
+order1 = Order(name="First Order")
+order2 = Order(name="Second Order")
 
 
-    print("Products array of order1: ")
-    print(order1.products)
-    print("Products array of order2: ")
-    print(order2.products)
-    print("Orders array of prod1: ")
-    print(prod1.orders)
-    print("Orders array of prod2: ")
-    print(prod2.orders)
-    print("Orders array of prod3: ")
-    print(prod3.orders)
-    print("Orders array of prod4: ")
-    print(prod4.orders)
+order1.add_products([(prod1, 4),(prod2, 5),(prod3, 4)])
+order2.add_products([(prod2, 6),(prod1, 1),(prod3, 2), (prod4, 1)])
 
-    print("Order_Products Array of order1 : ")
-    print(order1.order_products)
+session.commit()
 
-    print("Order_Products Array of prod1 : ")
-    print(prod1.order_products)
+
+print("Products array of order1: ")
+print(order1.products)
+print("Products array of order2: ")
+print(order2.products)
+print("Orders array of prod1: ")
+print(prod1.orders)
+print("Orders array of prod2: ")
+print(prod2.orders)
+print("Orders array of prod3: ")
+print(prod3.orders)
+print("Orders array of prod4: ")
+print(prod4.orders)
+
+print("Order_Products Array of order1 : ")
+print(order1.order_products)
+
+print("Order_Products Array of prod1 : ")
+print(prod1.order_products)
 
 
 
