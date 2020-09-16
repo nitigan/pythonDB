@@ -17,11 +17,13 @@ session = Session()
 #for isinstance in session.query(User).filter(User.name.in(('user1','user2'))):
 #    print(instance.name, instance.fullname)
 
-user1 = User(name='user1',fullname='Ed Jones',nickname='ed')
-#user1 = User(name='user2',fullname='TEd Jones',nickname='Ted')
+#user1 = User(name='user1',fullname='Ed Jones',nickname='ed')
+#user2 = User(name='user2',fullname='TEd Jones',nickname='Ted')
 #user3 = User(name='user3',fullname='STEd Jones',nickname='STed')
 #user4 = User(name='user4',fullname='WTEd Jones',nickname='WTed')
 
-session.add(user1)
-session.commit()
+#session.add_all([user1,user2,user3,user4])
+#session.commit()
 
+for instance in session.query(User).group_by(User.id):
+    print(instance.name, instance.fullname)
