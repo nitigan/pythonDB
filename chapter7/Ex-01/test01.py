@@ -6,7 +6,7 @@ from models import Base, User
 engine = create_engine('sqlite:///user.db', echo=False)
 
 #Base.metadata.drop_all(engine)
-Base.metadata.crete_all(engine)
+Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
