@@ -35,11 +35,11 @@ def load_table_sql():
 
 def random_date():
     start_date = datetime.date(1997,1 ,1)
-    end_data = datetime.date(2010, 1, 1)
+    end_date = datetime.date(2010, 1, 1)
 
     time_between_dates = end_date - start_date
     days_between_dates = time_between_dates.days
-    random_number_of_dats = random.randrange(days_between_dates)
+    random_number_of_days = random.randrange(days_between_dates)
     random_date = start_date + datetime.timedelta(days=random_number_of_days)
 
     return random_date
@@ -54,6 +54,6 @@ def create_db_user():
     print('create done')
     show_db_user()
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     app.run(host='0.0.0.0',debug=True)
     
