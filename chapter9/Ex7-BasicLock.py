@@ -25,6 +25,7 @@ if __name__ == "__main__":
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(format=format, level=logging.INFO,
         datefmt="%H:%M:%S")
+    logging.getLogger().setLevel(logging.DEBUG)
     
     database = FakeDatabase()
     logging.info("Testing Update. Starting value is %d. ", database.value)
