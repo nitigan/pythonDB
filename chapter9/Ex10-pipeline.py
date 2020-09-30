@@ -31,7 +31,7 @@ def consumer(pipeline, event):
 
 class Pipeline(queue.Queue):
     def __init__(self):
-        super().__init__(maxsize=10)
+        super().__init__(maxsize=4)
 
     def get_message(self,name):
         logging.debug("%s:about to get from queue",name)
@@ -57,6 +57,6 @@ if __name__ == "__main__":
         executor.submit(producer,pipeline,event)
         executor.submit(consumer,pipeline,event)
 
-        time.sleep(0.1)
+        time.sleep(0.01)
         logging.info("Main: about to set event")
         event.set()
